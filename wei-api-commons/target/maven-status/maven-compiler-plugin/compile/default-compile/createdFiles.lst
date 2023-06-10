@@ -1,0 +1,5 @@
+com\jiaoke\weiservice\entity\Payment.class
+com\jiaoke\weiservice\autogenerator\Constant.class
+com\jiaoke\weiservice\autogenerator\MpGenerator.class
+com\jiaoke\weiservice\pojo\CommonResult.class
+com\jiaoke\weiservice\dao\PaymentMapper.class
