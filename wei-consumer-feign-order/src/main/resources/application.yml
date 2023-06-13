@@ -1,0 +1,22 @@
+server:
+  port: 8085
+#eureka集群
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: true
+    service-url:
+#      defaultZone: http://eureka8003.com:8003/eureka,http://eureka8004.com:8004/eureka
+      defaultZone:  http://localhost:8003/eureka/
+
+# 设置feign客户端超时时间(OpenFeign默认支持ribbon) 基于ribbon  原因就是Openfeign默认等待1秒钟，超过后会报错。
+ribbon:
+  # 指的是建立连接所用的时间,适用于网络状态正常的情况下,两端连接所用的时间，设置等待5000为5秒时间
+  ReadTimeout: 5000
+  # 指的是建立连接后从服务器读取到可用资源所用的时间
+  ConnectTimeout: 5000
+
+logging:
+  level:
+    # feign日志以什么级别监控哪个接口
+    com.consumer.feign.orderserver.service.PaymentService: debug #在yml文件中需要开启日志的Feign客户端，要写PaymentService业务类的全限定类名

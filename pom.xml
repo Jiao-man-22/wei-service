@@ -17,6 +17,7 @@
         <module>wei-consumer-order</module>
         <module>wei-eureka</module>
         <module>wei-eureka-server-1</module>
+        <module>wei-consumer-feign-order</module>
     </modules>
 
     <properties>

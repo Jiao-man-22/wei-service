@@ -3,6 +3,8 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/wei-api-commons/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/wei-api-commons/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wei-consumer-feign-order/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wei-consumer-feign-order/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/wei-consumer-order/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/wei-consumer-order/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/wei-eureka-server-1/src/main/java" charset="UTF-8" />
