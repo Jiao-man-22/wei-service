@@ -1,0 +1,11 @@
+server:
+  port: 8004
+eureka:
+  instance:
+    hostname: eureka8004.com
+  client:
+    register-with-eureka: false  #eureka服务端的实例名称
+    fetch-registry: false
+    service-url:
+    #设置与eureka  server交互的地址和注册服务都需要依赖这个地址
+      defaultZone: http://localhost:8003/eureka/   #集群就是指向其他的eureka
