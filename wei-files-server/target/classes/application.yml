@@ -1,0 +1,27 @@
+server:
+  port: 8006
+spring:
+  application:
+    name: wei-file-server  #服务名
+  datasource:
+    #    type: com.alibaba.druid.pool.DruidDataSource  #当前数据源操作类型
+    driver-class-name:  com.mysql.cj.jdbc.Driver  #数据库驱动包
+    #    url: jdbc:mysql://localhost:3306/wei-service?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    url: jdbc:mysql://localhost:3306/wei-service?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: 123456
+custom-var:
+  file-server-url:   # 做一个虚拟化 地址
+    file-upload-path: # 文件上传 路径
+#eureka配置
+eureka:
+  client:
+    #表示是否将自己注册进eureka  默认为true
+    register-with-eureka: true
+    #是否从EurekaServer中抓取已有的注册信息，默认为true，单点无所谓，集群必须设置true才能和ribbon使用负载均衡
+    fetch-registry: true
+    service-url:
+      #单机配置 向多个eureka-server端注册自己
+      defaultZone: http://localhost:8003/eureka/,http://localhost:8004/eureka/
+
+
