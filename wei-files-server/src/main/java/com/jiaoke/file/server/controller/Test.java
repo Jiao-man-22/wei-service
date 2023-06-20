@@ -2,7 +2,6 @@ package com.jiaoke.file.server.controller;
 
 import com.jiaoke.file.server.annotations.CustomAnnotation;
 import com.jiaoke.file.server.po.vo.MyEntity;
-import org.springframework.boot.autoconfigure.ldap.embedded.EmbeddedLdapProperties;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
