@@ -18,6 +18,7 @@
         <module>wei-eureka</module>
         <module>wei-eureka-server-1</module>
         <module>wei-consumer-feign-order</module>
+        <module>wei-files-server</module>
     </modules>
 
     <properties>
@@ -32,6 +33,7 @@
         <log4j.vsrsion>1.2.17</log4j.vsrsion>
         <com.baomidou.version>3.5.1</com.baomidou.version>
         <springboot.version>2.1.4.RELEASE</springboot.version>
+        <hutool.version>4.6.3</hutool.version>
 
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
@@ -93,12 +95,19 @@
                 <version>1.18.8</version>
             </dependency>
 
-            <!-- log4j-->
+<!--            &lt;!&ndash; log4j&ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>log4j</groupId>-->
+<!--                <artifactId>log4j</artifactId>-->
+<!--                <version>${log4j.vsrsion}</version>-->
+<!--            </dependency>-->
+
             <dependency>
-                <groupId>log4j</groupId>
-                <artifactId>log4j</artifactId>
-                <version>${log4j.vsrsion}</version>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
             </dependency>
+
             <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-core</artifactId>

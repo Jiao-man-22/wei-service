@@ -69,7 +69,7 @@ public class MpGenerator {
                 .customFile(Collections.singletonMap("test.txt", "/templates/test.vm"))
                 .build();
 
-        new StrategyConfig.Builder()
+        StrategyConfig strategyConfig = new StrategyConfig.Builder()
                 .enableCapitalMode()
                 .enableSkipView()
                 .disableSqlFilter()
@@ -77,6 +77,7 @@ public class MpGenerator {
                 .addInclude("t_simple")
                 .addTablePrefix("t_", "c_")
                 .addFieldSuffix("_flag")
+                .addInclude("base_file_info")
                 .build();
 
         StrategyConfig strategyconfig = new StrategyConfig.Builder()
@@ -122,8 +123,9 @@ public class MpGenerator {
                 .build();
         //自动生成
         AutoGenerator autoGenerator = new AutoGenerator(build);
-
+        autoGenerator.strategy(strategyConfig);
         autoGenerator.global(globalconfig).packageInfo(packageconfig).template(templateconfig);
+
         //执行
         autoGenerator.execute();
         System.out.println("=========生成结束 =========");

@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="wei-consumer-order" />
         <module name="wei-system-services" />
+        <module name="wei-files-server" />
         <module name="wei-provide-payment" />
         <module name="wei-eureka" />
         <module name="wei-eureka-server-1" />
