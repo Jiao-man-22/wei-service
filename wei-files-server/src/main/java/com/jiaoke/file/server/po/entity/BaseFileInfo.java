@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
+import lombok.Data;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -18,6 +19,7 @@ import java.time.LocalDateTime;
  */
 @TableName("base_file_info")
 @ApiModel(value = "BaseFileInfo对象", description = "")
+@Data
 public class BaseFileInfo implements Serializable {
 
     private static final long serialVersionUID = 1L;

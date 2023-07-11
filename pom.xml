@@ -19,6 +19,7 @@
         <module>wei-eureka-server-1</module>
         <module>wei-consumer-feign-order</module>
         <module>wei-files-server</module>
+        <module>wei-nowchat-service</module>
     </modules>
 
     <properties>

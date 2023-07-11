@@ -8,12 +8,14 @@ import com.jiaoke.file.server.util.FileUtil;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -85,6 +87,9 @@ public class FileServiceImpl extends ServiceImpl<FileMapper, BaseFileInfo> imple
         // 牵扯到 表设计
         // 1 文件 服务器 存储带后缀 方便 查看 但 后缀 就要单独存放 不然每次得截取 文件后缀  do
         // 2 文件服务器 不存 后缀比较 简单高效 但是 不方便维护 文件服务器
+//        System.out.println("----------------------" + res.getContentType());
+//        res.setContentType(MediaType.APPLICATION_OCTET_STREAM_VALUE);
+//        System.out.println("----------------------" + res.getContentType());
         if (baseFileInfo != null){
             File file = new File(baseFileInfo.getFileLocation(),
                     baseFileInfo.getFileId() + "." + FileUtil.getExtension(baseFileInfo.getFileRealName()));
@@ -95,6 +100,7 @@ public class FileServiceImpl extends ServiceImpl<FileMapper, BaseFileInfo> imple
                     e.printStackTrace();
                 }
             }
+
             BufferedInputStream br = new BufferedInputStream(new FileInputStream(file));
             byte[] buf = new byte[1024];
             int len = 0;
@@ -103,17 +109,25 @@ public class FileServiceImpl extends ServiceImpl<FileMapper, BaseFileInfo> imple
                 res.getOutputStream().write(buf,0,len);
             }
             res.getOutputStream().flush();
-            //????? 抄的，这步我也懵的一笔
-            if (!res.isCommitted())  res.reset(); // 非常重要
+            //????? 抄的，这步我也懵的一笔    // 这是大坑 查看响应状态
+            boolean committed = res.isCommitted();
+            //  // 设置响应属性  已经被提交 就不能 改
+            if (!committed)res.reset(); // 非常重要
 
             if (isOnline) { // 在线打开方式
                 URL u = new URL("file:///" + baseFileInfo.getFileLocation());
                 res.setContentType(u.openConnection().getContentType());
-                res.setHeader("Content-Disposition", "inline; filename=" + file.getName());
+                res.setHeader("Content-Disposition", "inline; filename=" + baseFileInfo.getFileRealName());
                 // 文件名应该编码成UTF-8
             } else { // 纯下载方式
+                // 对中文 解码 乱码
+                String encodedFileName = URLEncoder.encode(baseFileInfo.getFileRealName(), "UTF-8");
                 res.setContentType("application/x-msdownload");
-                res.setHeader("Content-Disposition", "attachment; filename=" + file.getName());
+                res.setHeader("Content-Disposition", "attachment; filename=" + baseFileInfo.getFileRealName());
+                System.out.println("----------------------" + res.getContentType());
+                res.setContentType(MediaType.APPLICATION_JSON.getType());
+                FileUtil.setAttachmentResponseHeader(res,baseFileInfo.getFileRealName());
+                System.out.println("----------------------" + res.getContentType());
             }
             if (res.getOutputStream() != null) res.getOutputStream().close();
 

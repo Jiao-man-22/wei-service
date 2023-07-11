@@ -5,11 +5,14 @@ import com.jiaoke.file.server.annotations.CustomAnnotation;
 import com.jiaoke.file.server.annotations.MyCustomValidation;
 import com.jiaoke.file.server.po.vo.MyEntity;
 import com.jiaoke.file.server.service.IFileService;
+import com.jiaoke.file.server.util.FileUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.ConstraintViolation;
@@ -46,6 +49,7 @@ public class CommonUploadController {
     public void downloadFile(@PathVariable String fileId, HttpServletResponse res, HttpServletRequest req){
 
         try {
+
             fileService.downloadFile(fileId, res, false);
         } catch (IOException e) {
             e.printStackTrace();
