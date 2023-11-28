@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="wei-nowchat-service" />
         <module name="wei-consumer-order" />
         <module name="wei-system-services" />
         <module name="wei-files-server" />
@@ -17,5 +18,10 @@
         <module name="wei-consumer-feign-order" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="wei-code-generator-server" target="8" />
+      <module name="wei-netty-chat-server" target="8" />
+      <module name="wei-providera-hystrix-payment8001" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
