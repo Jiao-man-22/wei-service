@@ -7,21 +7,31 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="wei-nowchat-service" />
+        <module name="middle-msg-server" />
         <module name="wei-consumer-order" />
+        <module name="learn" />
         <module name="wei-system-services" />
+        <module name="wei-ai" />
+        <module name="wei-api-commons" />
+        <module name="wei-nowchat-service" />
+        <module name="payment-service" />
         <module name="wei-files-server" />
         <module name="wei-provide-payment" />
         <module name="wei-eureka" />
         <module name="wei-eureka-server-1" />
-        <module name="wei-api-commons" />
         <module name="wei-consumer-feign-order" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="wei-code-generator-server" target="8" />
-      <module name="wei-netty-chat-server" target="8" />
-      <module name="wei-providera-hystrix-payment8001" target="8" />
+    <bytecodeTargetLevel target="8">
+      <module name="wei-payment-service" target="8" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="learn" options="" />
+      <module name="middle-msg-server" options="" />
+      <module name="wei-ai" options="" />
+      <module name="wei-payment-service" options="-parameters" />
+    </option>
   </component>
 </project>

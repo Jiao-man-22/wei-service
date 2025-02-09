@@ -10,6 +10,31 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>wei-system-services</artifactId>
+    <dependencies>
+
+        <dependency>
+            <groupId>com.jiaoke.test.weiservice</groupId>
+            <artifactId>wei-api-commons</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.47</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+        </dependency>
+
+    </dependencies>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

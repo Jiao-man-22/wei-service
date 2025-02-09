@@ -40,7 +40,6 @@ public class CommonUploadController {
 //        Set<ConstraintViolation<MultipartFile[]>> validate = validator.validate(files);
         if (files == null || files.length == 0 )return "NG";
         boolean b = fileService.uploadMultiFile(files);
-哦怕怕怕
         return String.valueOf(b);
     }
 
