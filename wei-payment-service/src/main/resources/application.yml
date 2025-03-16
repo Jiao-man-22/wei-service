@@ -1,3 +1,8 @@
 spring:
   application:
     name: payment-service
+
+elepay:
+  api-key: ${ELEPAY_API_KEY}  # 使用环境变量存储 API 密钥
+  api-url: https://api.elepay.io/v1/
+  webhook-secret: ${ELEPAY_WEBHOOK_SECRET}  # 使用环境变量存储 Webhook 密钥
