@@ -101,5 +101,6 @@ public class Stack {
         System.out.println(stack.size());
         stack.showElement();
 
+        
     }
 }
